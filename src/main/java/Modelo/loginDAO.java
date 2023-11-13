@@ -9,22 +9,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Clase para manejar la autenticación de usuarios en la base de datos.
- */
+
 public class loginDAO {
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     Conexion cn = new Conexion();
 
-    // Cambié el nombre del constructor para que coincida con el nombre de la clase
+   
     public loginDAO() {
     }
 
-    // Cambié el nombre del método y el tipo de retorno para que coincida con el nombre de la clase
+    
     public login autenticar(String correo, String pass) {
-        login l = null; // Declaración inicial de la variable login
+        login l = null; 
 
         String sql = "SELECT * FROM usuario WHERE correo = ? AND pass = ?";
         try {
@@ -34,7 +32,7 @@ public class loginDAO {
             ps.setString(2, pass);
             rs = ps.executeQuery();
             if (rs.next()) {
-                l = new login(); // Crear una instancia de login si se encuentra un usuario
+                l = new login(); 
                 l.setId(rs.getInt("id"));
                 l.setNombre(rs.getString("nombre"));
                 l.setCorreo(rs.getString("correo"));
@@ -43,7 +41,7 @@ public class loginDAO {
         } catch (SQLException e) {
             System.out.println(e.toString());
         } finally {
-            // Siempre debes cerrar la conexión, el PreparedStatement y el ResultSet en un bloque finally
+           
             try {
                 if (rs != null) {
                     rs.close();

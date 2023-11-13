@@ -9,7 +9,7 @@ public class Conexion {
     private Connection conexion;
 
     public Conexion() {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/sistemaventas?serverTimeZone=UTC";
+        String jdbcUrl = "jdbc:mysql://localhost:3307/sistemaventas?serverTimeZone=UTC";
        
 
         try {

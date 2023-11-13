@@ -10,17 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-/**
- *
- * @author sebas
- */
+
 public class ClienteDAO {
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     
-    //1
+  
     public boolean RegistrarCliente(Cliente cl){
         String sql = "INSERT INTO clientes (dni, nombre, telefono, direccion, razon)VALUES (?,?,?,?,?)";
         try {
@@ -39,7 +36,7 @@ public class ClienteDAO {
         }
     } 
     
-    //2
+   
     
     public List listarCliente(){
         List<Cliente> ListaCl = new ArrayList();
@@ -64,7 +61,7 @@ public class ClienteDAO {
         return ListaCl;
     }
     
-    //3
+    
     public boolean eliminarCliente(int id){
         String sql = "DELETE FROM clientes WHERE id=?";
         try {
@@ -78,7 +75,7 @@ public class ClienteDAO {
         }
     }
     
-    //4
+    
     public boolean modificarCliente(Cliente cl){
         String sql = "UPDATE clientes SET dni=?, nombre=?, telefono=?, direccion=?, razon=? WHERE id=?";
         try {
